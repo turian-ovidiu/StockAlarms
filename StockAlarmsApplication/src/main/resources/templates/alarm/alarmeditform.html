@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Stock</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <link href="../static/css/intro.css"
+          th:href="@{/css/intro.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<!--/*/ <th:block th:include="fragments/headerN :: headerN"></th:block> /*/-->
+<div class="container">
+
+    <div class="row" sec:authorize="isAuthenticated()">
+        <form class="" th:object="${alarm}" th:action="@{/alarm}" method="post" enctype="multipart/form-data">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                <div class="panel panel-info">
+                    <input type="hidden" th:field="*{id}"/>
+                    <input type="hidden" th:field="*{version}"/>
+                    <input type="hidden" th:field="*{symbol}"/>
+                    <input type="hidden" th:field="*{name}"/>
+                    <input type="hidden" th:field="*{currency}"/>
+                    <input type="hidden" th:field="*{stockExchange}"/>
+                    <input type="hidden" th:field="*{price}"/>
+                    <input type="hidden" th:field="*{priceTarget}"/>
+                    <input type="hidden" th:field="*{currentPrice}"/>
+                    <input type="hidden" th:field="*{currentPercentChange}"/>
+                    <div class="panel-heading">
+                        <h3 class="panel-title" th:text="${alarm.name}">Name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td><b>Symbol:</b></td>
+                                        <td th:text="${alarm.symbol}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Exchange:</b></td>
+                                        <td th:text="${alarm.stockExchange}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Currency:</b></td>
+                                        <td th:text="${alarm.currency}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Price:</b></td>
+                                        <td th:text="${alarm.price}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Price target:</b></td>
+                                        <td th:text="${alarm.priceTarget}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current price:</b></td>
+                                        <td th:text="${alarm.currentPrice}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Current % Change:</b></td>
+                                        <td th:text="${alarm.currentPercentChange}"></td>
+                                    </tr>
+                                    <tr>
+                                        <input type="text" th:field="*{percentChange}"
+                                               class="form-control" name="percentChange" id="percentChange" placeholder="Change in %"></input>
+                                    </tr>
+                                    <tr>
+                                        <ul id="ul_text" th:each="alarmStatus : ${T(com.StockAlarms.StockAlarmsApplication.domain.enums.AlarmStatus).values()}">
+                                            <li>
+                                                <input type="radio" th:field="*{alarmStatus}" th:value="${alarmStatus}" th:text="${alarmStatus}"/>
+                                            </li>
+                                        </ul>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" value="upload" class="btn btn-primary btn-lg btn-block">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

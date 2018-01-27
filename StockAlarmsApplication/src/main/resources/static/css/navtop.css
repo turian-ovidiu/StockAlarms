@@ -1,0 +1,121 @@
+.navbar {
+      background:rgba(0,0,0,0.0);
+      width: 100%;
+
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus{
+   color:black !important;
+   font-size:30px;
+}
+.navbar-inverse .navbar-nav>li>a{
+   font-size:20px;
+}
+
+.navbar-inverse .navbar-signin>a{
+
+    position: absolute;
+    right: 15px;
+    top: 8px;
+
+   font-size: 16px;
+   margin: 18px 3% 0;
+   padding: 7px 17px;
+   color: #fff;
+   background-color:#e5354b;
+   line-height: normal;
+   font-weight: 400;
+   border-radius: 0px;
+}
+
+
+.navbar-inverse .navbar-welcome>a{
+
+    position: absolute;
+        right: 140px;
+        top: 8px;
+
+       font-size: 16px;
+       margin: 18px 3% 0;
+       padding: 7px 17px;
+       color: #fff;
+       background-color:#fd8127;
+       line-height: normal;
+       font-weight: 400;
+       border-radius: 0px;
+}
+
+.navbar-inverse .navbar-cart>a{
+
+    position: absolute;
+        right: 265px;
+        top: 7px;
+
+       font-size: 16px;
+       margin: 18px 3% 0;
+       padding: 7px 17px;
+       color: #fff;
+       background-color:#53abe1;
+       line-height: normal;
+       font-weight: 400;
+       border-radius: 0px;
+}
+
+.navbar-inverse .navbar-home>a{
+
+    position: absolute;
+        right: 1400px;
+        top: 8px;
+
+       font-size: 25px;
+       margin: 18px 3% 0;
+       padding: 7px 17px;
+       color: #fff;
+       background-color:#53abe1;
+       line-height: normal;
+       font-weight: 400;
+       border-radius: 0px;
+}
+
+.navbar-inverse .navbar-searchC{
+   position: absolute;
+       right: 650px;
+           top: -3px;
+
+     font-size: 16px;
+     margin: 18px 3% 0;
+     padding: 7px 17px;
+     color: #fff;
+     line-height: normal;
+     font-weight: 400;
+     border-radius: 0px;
+}
+
+.navbar-inverse .navbar-searchP{
+
+    position: absolute;
+        right: 370px;
+        top: -3px;
+
+       font-size: 16px;
+       margin: 18px 3% 0;
+       padding: 7px 17px;
+       color: #fff;
+       line-height: normal;
+       font-weight: 400;
+       border-radius: 0px;
+}
+
+
+
+
+input::-webkit-input-placeholder {
+  color: #BDBDBD !important;
+  font-size: 15px;
+}
+
+
+
+.navbar-form .form-control {
+    width: 215px;
+}

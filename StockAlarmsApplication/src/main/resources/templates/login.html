@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Form</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+    <link href="../static/css/login.css"
+          th:href="@{/css/login.css}" rel="stylesheet" media="screen"/>
+
+    <style>
+        body,html{
+        background-image: url("../images/intro.jpg");
+        }
+    </style>
+
+</head>
+<body>
+<!--/*/ <th:block th:include="fragments/headerN :: headerN"></th:block> /*/-->
+<div class="container">
+
+
+    <div class="row main">
+        <div class="main-login main-center">
+            <h5>Sign In </h5>
+            <div th:if="${param.error}" style="color:#C62828">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <form class="" th:action="@{/login}" method="post">
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" id="username" name="username"  autofocus="autofocus" class="form-control" placeholder="Enter your Email"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button   type="submit" value="Log in" id="button" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                </div>
+                <div class="form-group" align="center">
+                    <a  type="text" th:href="${'/user/new'}" style="color: #fff" >Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

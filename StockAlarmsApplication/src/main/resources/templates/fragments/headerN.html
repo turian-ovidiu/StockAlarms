@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+    <title>Profile</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+
+
+<div th:fragment="headerN">
+
+    <div class="navbar navbar-inverse navbar-fixed-right opaque-navbar">
+        <div class="nav navbar-home">
+            <a class="btn btn-danger" th:href="${'/index'}"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </div>
+        <div>
+            <form class="navbar-form navbar-right" th:action="@{/stock/search(userInput=${stockSymbol})}"
+                  method="post"
+                  sec:authorize="isAuthenticated()">
+                <div class="nav navbar-searchP">
+                    <input type="text" pattern="[a-zA-Z]+" title="Only enter letters" class="form-control"
+                           name="stockSymbol" id="productName" th:value="${stockSymbol}"
+                           placeholder="Stock ticker.." required="required"/>
+                    <button type="submit" name="submit" value="value" class="btn btn-primary"><span
+                            class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </form>
+        </div>
+        <div class="nav navbar-signin">
+            <a class="btn btn-danger" th:href="@{/login}" sec:authorize="!isAuthenticated()">Sign In</a>
+            <a class="btn btn-danger" th:href="@{/logout}" sec:authorize="isAuthenticated()">Sign Out</a>
+        </div>
+        <div class="nav navbar-welcome">
+            <a class="btn btn-danger" th:href="${'/user/show-account'}" sec:authorize="isAuthenticated()">Account</a>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#" align="center" sec:authorize="isAuthenticated()">Alarms</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/alarm/list}" align="left-side" sec:authorize="isAuthenticated()">List Alarms</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
